@@ -16,19 +16,19 @@ const DeleteButton = ({ subaccountId }: Props) => {
 
   return (
     <div
-      className="text-white"
+      className="text-white cursor-pointer"
       onClick={async () => {
         const response = await getSubaccountDetails(subaccountId)
         await saveActivityLogsNotification({
           agencyId: undefined,
-          description: `Deleted a subaccount | ${response?.name}`,
+          description: `Sous-compte supprimé | ${response?.name}`,
           subaccountId,
         })
         await deleteSubAccount(subaccountId)
         router.refresh()
       }}
     >
-      Delete Sub Account
+      Supprimer le sous-compte
     </div>
   )
 }
